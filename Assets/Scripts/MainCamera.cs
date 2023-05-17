@@ -10,5 +10,10 @@ public class MainCamera : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector2.up * Time.deltaTime * speed, Space.World);
+
+        if(transform.position.y >=77.98f)
+        {
+            speed = 0;
+        }
     }
 }

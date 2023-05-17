@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,11 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
+
+    internal void LifeLoss()
+    {
+        throw new NotImplementedException();
+    }
 
     void Update()
     {
