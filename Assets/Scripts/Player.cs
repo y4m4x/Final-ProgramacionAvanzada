@@ -2,14 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+    
+    public GameObject GameManager;
+    
+    public GameObject GameOver;
+    
+    public Text LivesUIText;
+
+    const int MaxLives = 3;
+    int Lives;
+
     public float speed;
 
-    internal void LifeLoss()
+    public void Init()
     {
-        throw new NotImplementedException();
+        Lives = MaxLives;
+
+        LivesUIText.text = Lives.ToString();
+
+        gameObject.SetActive (true);
     }
 
     void Update()
@@ -32,6 +48,19 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             transform.position += Vector3.down * speed * Time.deltaTime;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Lives--;
+        LivesUIText.text = Lives.ToString();
+
+        if (Lives == 0)
+        {
+            SceneManager.LoadScene("Derrota");
+
+            gameObject.SetActive(false);
         }
     }
 }
