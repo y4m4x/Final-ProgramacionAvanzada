@@ -2102,6 +2102,10 @@ PrefabInstance:
       propertyPath: ImagenVidas
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5225815405842039718, guid: 48c009471a0a1894fa20c6c7fd7aaff0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5225815405842039719, guid: 48c009471a0a1894fa20c6c7fd7aaff0, type: 3}
       propertyPath: m_Constraints
       value: 6
