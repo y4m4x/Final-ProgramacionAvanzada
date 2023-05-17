@@ -1345,7 +1345,7 @@ GameObject:
   - component: {fileID: 1604245658}
   - component: {fileID: 1604245657}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Vida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2134,6 +2134,10 @@ PrefabInstance:
       propertyPath: Vida
       value: 
       objectReference: {fileID: 1604245655}
+    - target: {fileID: 5225815405842039716, guid: 48c009471a0a1894fa20c6c7fd7aaff0, type: 3}
+      propertyPath: vidas
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5225815405842039716, guid: 48c009471a0a1894fa20c6c7fd7aaff0, type: 3}
       propertyPath: GameOver
       value: 

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     float speed;
+    public GameObject Vidas;
+    public int Damage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,12 @@ public class Enemy : MonoBehaviour
             Debug.Log("Enemy get shooted");
 
             Destroy(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Vidas.GetComponent<Vidas>().RestarVida(Damage);
             Destroy(this.gameObject);
         }
     }

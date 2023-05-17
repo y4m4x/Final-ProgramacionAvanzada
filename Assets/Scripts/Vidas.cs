@@ -69,4 +69,8 @@ public class Vidas : MonoBehaviour
             vidas = 6;
         }
     }
+    public void RestarVida(int VidasARestar)
+    {
+        vidas -= VidasARestar;
+    }
 }
