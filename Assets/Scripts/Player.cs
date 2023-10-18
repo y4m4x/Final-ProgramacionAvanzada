@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    
+    private PlayerController Input;
+
+    private Rigidbody2D Rigidbody;
+
     public GameObject GameManager;
     
     public GameObject GameOver;
@@ -19,6 +23,15 @@ public class Player : MonoBehaviour
 
     public float speed;
 
+    private Vector2 mov;
+
+    private void Awake()
+    {
+        Input = new PlayerController();
+        Rigidbody = GetComponent<Rigidbody2D>();
+    }
+
+
     public void Init()
     {
         Lives = MaxLives;
@@ -28,27 +41,33 @@ public class Player : MonoBehaviour
         gameObject.SetActive (true);
     }
 
-    void Update()
+    private void OnEnable()
     {
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-        }
+        Input.Enable();
+        Input.Player.Movimiento.performed += MovementPerformed;
+        Input.Player.Movimiento.canceled += MovementCancelled;
+    }
 
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-        }
+    private void OnDisable()
+    {
+        Input.Disable();
+        Input.Player.Movimiento.performed -= MovementPerformed;
+        Input.Player.Movimiento.canceled -= MovementCancelled;
+    }
 
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
-            transform.position += Vector3.up * speed * Time.deltaTime;
-        }
+    private void FixedUpdate()
+    {
+        Rigidbody.velocity = mov * speed;
+    }
 
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-        {
-            transform.position += Vector3.down * speed * Time.deltaTime;
-        }
+    private void MovementPerformed(InputAction.CallbackContext context)
+    {
+        mov = context.ReadValue<Vector2>();
+    }
+
+    private void MovementCancelled(InputAction.CallbackContext context)
+    {
+        mov = Vector2.zero;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

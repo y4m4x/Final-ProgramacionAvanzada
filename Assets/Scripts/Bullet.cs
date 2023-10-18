@@ -12,25 +12,20 @@ public class Bullet : MonoBehaviour
 
     private float shotRatetime = 0;
 
-
-    // Update is called once per frame
-    void Update()
+    public void Shoot()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Time.time > shotRatetime)
         {
-            if (Time.time > shotRatetime)
-            {
-                GameObject newbullet;
+            GameObject newbullet;
 
-                newbullet = Instantiate(bullet, spawnpoint.position, spawnpoint.rotation);
+            newbullet = Instantiate(bullet, spawnpoint.position, spawnpoint.rotation);
 
-                newbullet.GetComponent<Rigidbody2D>().AddForce(spawnpoint.up * shotForce);
+            newbullet.GetComponent<Rigidbody2D>().AddForce(spawnpoint.up * shotForce);
 
-                shotRatetime = Time.time + shotRate;
+            shotRatetime = Time.time + shotRate;
 
-                Destroy(newbullet, 2);
+            Destroy(newbullet, 2);
 
-            }
         }
     }
 }

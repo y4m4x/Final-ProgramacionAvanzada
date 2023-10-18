@@ -1432,6 +1432,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5225815405842039715, guid: 48c009471a0a1894fa20c6c7fd7aaff0, type: 3}
   m_PrefabInstance: {fileID: 5225815407155386306}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1404572773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5225815405842039713, guid: 48c009471a0a1894fa20c6c7fd7aaff0, type: 3}
+  m_PrefabInstance: {fileID: 5225815407155386306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989874183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 419063231b9a44f48a6ae74afa73d480, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1404572776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989874183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 31cf5c2ad991d71409a2f90005d7fdcb, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f8f4704d-a6ee-46db-aea9-91e42a23e824
+    m_ActionName: Player/Movimiento[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1404572773}
+        m_TargetAssemblyTypeName: Bullet, Assembly-CSharp
+        m_MethodName: Shoot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: aa86eb22-8452-44e9-a6e3-3a509236658c
+    m_ActionName: Player/Shoot[/Mouse/leftButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1663382495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2169,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5225815405842039719, guid: 48c009471a0a1894fa20c6c7fd7aaff0, type: 3}
       propertyPath: m_Constraints
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5225815405842039716, guid: 48c009471a0a1894fa20c6c7fd7aaff0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 48c009471a0a1894fa20c6c7fd7aaff0, type: 3}
