@@ -13,13 +13,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D Rigidbody;
 
     public GameObject GameManager;
-    
-    public GameObject GameOver;
-    
-    public Text LivesUIText;
 
-    const int MaxLives = 3;
-    int Lives;
+    public GameObject GameOver;
 
     public float speed;
 
@@ -29,16 +24,6 @@ public class Player : MonoBehaviour
     {
         Input = new PlayerController();
         Rigidbody = GetComponent<Rigidbody2D>();
-    }
-
-
-    public void Init()
-    {
-        Lives = MaxLives;
-
-        LivesUIText.text = Lives.ToString();
-
-        gameObject.SetActive (true);
     }
 
     private void OnEnable()
@@ -68,26 +53,5 @@ public class Player : MonoBehaviour
     private void MovementCancelled(InputAction.CallbackContext context)
     {
         mov = Vector2.zero;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Lives--;
-        LivesUIText.text = Lives.ToString();
-
-        if (Lives == 0)
-        {
-            SceneManager.LoadScene("Derrota");
-
-            gameObject.SetActive(false);
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("bullet"))
-        {
-            Lives = MaxLives;
-        }
     }
 }

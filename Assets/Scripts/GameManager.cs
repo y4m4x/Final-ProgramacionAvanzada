@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
                 PlayButton.SetActive(false);
 
-                Player.GetComponent<Player>().Init();
+                Player.GetComponent<Player>();
                 break;
 
             case GameManagerState.GameOver:
