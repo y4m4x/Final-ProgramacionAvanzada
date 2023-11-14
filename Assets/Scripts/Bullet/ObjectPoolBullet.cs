@@ -19,7 +19,7 @@ public class ObjectPoolBullet : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            Destroy(instance);
         }
     }
     public void Start()
@@ -32,9 +32,8 @@ public class ObjectPoolBullet : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab);
-            bullet.SetActive(true);
+            bullet.SetActive(false);
             bulletList.Add(bullet);
-            bullet.transform.parent = transform;
         }
     }
 
@@ -42,7 +41,7 @@ public class ObjectPoolBullet : MonoBehaviour
     {
         for (int i = 0; i < bulletList.Count; i++)
         {
-            if (!bulletList[i].activeSelf)
+            if (!bulletList[i].activeInHierarchy)
             {
                 bulletList[i].SetActive(true);
                 return bulletList[i];

@@ -14,18 +14,23 @@ public class Bullet : MonoBehaviour
 
     public void Shoot()
     {
+        Debug.Log("PreShoot");
+
         if (Time.time > shotRatetime)
         {
             GameObject newbullet;
 
-            newbullet = Instantiate(bullet, spawnpoint.position, spawnpoint.rotation);
+            newbullet = ObjectPoolBullet.instance.RequestBullet();
+
+            newbullet.transform.position = spawnpoint.transform.position;
+
+            newbullet.transform.rotation = spawnpoint.rotation;
 
             newbullet.GetComponent<Rigidbody2D>().AddForce(spawnpoint.up * shotForce);
 
             shotRatetime = Time.time + shotRate;
 
-            Destroy(newbullet, 2);
-
+            Debug.Log("DoneShoot");
         }
     }
 }

@@ -20,6 +20,10 @@ public class Player : MonoBehaviour
 
     private Vector2 mov;
 
+    private Button shoot;
+
+    [SerializeField] private Bullet playerBullet;
+
     private void Awake()
     {
         Input = new PlayerController();
@@ -31,6 +35,7 @@ public class Player : MonoBehaviour
         Input.Enable();
         Input.Player.Movimiento.performed += MovementPerformed;
         Input.Player.Movimiento.canceled += MovementCancelled;
+        Input.Player.Shoot.performed += ShootPerformed;
     }
 
     private void OnDisable()
@@ -38,6 +43,7 @@ public class Player : MonoBehaviour
         Input.Disable();
         Input.Player.Movimiento.performed -= MovementPerformed;
         Input.Player.Movimiento.canceled -= MovementCancelled;
+        Input.Player.Shoot.performed -= ShootPerformed;
     }
 
     private void FixedUpdate()
@@ -53,5 +59,12 @@ public class Player : MonoBehaviour
     private void MovementCancelled(InputAction.CallbackContext context)
     {
         mov = Vector2.zero;
+    }
+
+    private void ShootPerformed(InputAction.CallbackContext context)
+    {
+        playerBullet.Shoot();
+
+        Debug.Log("ShootPerformed");
     }
 }
