@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 5225815405842039715}
   - component: {fileID: 5225815405842039714}
   - component: {fileID: 5225815405842039712}
-  - component: {fileID: 5225815405842039713}
   - component: {fileID: 5225815405842039718}
   - component: {fileID: 5225815405842039719}
-  - component: {fileID: 5225815405842039716}
+  - component: {fileID: 425580667233533848}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -102,23 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb432278e787e5448c9d45faed8162c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameManager: {fileID: 0}
+  GameOver: {fileID: 0}
   speed: 6
---- !u!114 &5225815405842039713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5225815405842039709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419063231b9a44f48a6ae74afa73d480, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 4930176351696454568, guid: ff0dd01072fd36a45aabfede2c402f15, type: 3}
-  spawnpoint: {fileID: 5225815406051045582}
-  shotForce: 1200
-  shotRate: 0.5
 --- !u!61 &5225815405842039718
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -129,6 +114,25 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -162,11 +166,17 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5225815405842039716
+--- !u!114 &425580667233533848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,20 +185,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5225815405842039709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eacf4ccd0327f9489b75c6ca9bcfa3c, type: 3}
+  m_Script: {fileID: 11500000, guid: b5f432c2988f9394f9496586f09fd379, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidas: 6
-  ImagenVidas: {fileID: 0}
-  vida6: {fileID: 21300000, guid: 547a219a66741554d90cab73ce6828b7, type: 3}
-  vida5: {fileID: 21300000, guid: 5c1b82f58cb1d5a43b71d9904c06863c, type: 3}
-  vida4: {fileID: 21300000, guid: 48c7a639a46d669478d9520500cb6dc0, type: 3}
-  vida3: {fileID: 21300000, guid: 126ecedd36095894a9c9c5e827ab0e13, type: 3}
-  vida2: {fileID: 21300000, guid: 686b65c9318267b469d18a6c55b72614, type: 3}
-  vida1: {fileID: 21300000, guid: fb7a28fe044854e4d89691ca1e691faa, type: 3}
-  vida0: {fileID: 21300000, guid: ad98af98fd754be468d23a2ebe50af9d, type: 3}
-  Vida: {fileID: 0}
-  GameOver: {fileID: 0}
+  bulletPrefab: {fileID: 4930176351696454568, guid: ff0dd01072fd36a45aabfede2c402f15, type: 3}
+  poolSize: 10
+  bulletList: []
 --- !u!1 &5225815406051045577
 GameObject:
   m_ObjectHideFlags: 0
