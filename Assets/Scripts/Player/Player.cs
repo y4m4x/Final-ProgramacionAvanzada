@@ -67,4 +67,22 @@ public class Player : MonoBehaviour
 
         Debug.Log("ShootPerformed");
     }
+
+    public void XSpeed(float newSpeed)
+    {
+        speed *= 2f;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<PowerUpInterface>(out PowerUpInterface powerUpObject))
+        {
+            powerUpObject.Action(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            SceneManager.LoadScene("Derrota");
+        }
+    }
 }
