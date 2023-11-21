@@ -1758,11 +1758,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4683728926519806788, guid: a7f9f7d62f81c3f4aae159108564cecf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.08
+      value: -0.04
       objectReference: {fileID: 0}
     - target: {fileID: 4683728926519806788, guid: a7f9f7d62f81c3f4aae159108564cecf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.23
+      value: 9.69
       objectReference: {fileID: 0}
     - target: {fileID: 4683728926519806788, guid: a7f9f7d62f81c3f4aae159108564cecf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2053,6 +2053,10 @@ PrefabInstance:
     - target: {fileID: 753741555185414121, guid: 46c80d3b1a97565429bbc8b144e0de13, type: 3}
       propertyPath: m_Name
       value: XSpeedPowerUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973222869867284124, guid: 46c80d3b1a97565429bbc8b144e0de13, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7095837860169575907, guid: 46c80d3b1a97565429bbc8b144e0de13, type: 3}
       propertyPath: m_RootOrder
