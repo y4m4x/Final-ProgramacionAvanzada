@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 
     public void XSpeed(float newSpeed)
     {
-        speed *= 2f;
+        speed = 12f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -78,6 +78,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.TryGetComponent<PowerUpInterface>(out PowerUpInterface powerUpObject))
         {
             powerUpObject.Action(gameObject);
+            return;
         }
 
         if (collision.gameObject.CompareTag("Enemy"))

@@ -5,5 +5,4 @@ using UnityEngine;
 public abstract class PowerUp : MonoBehaviour
 {
     public abstract string PowerUpName { get; }
-    public abstract void Activate();
 }

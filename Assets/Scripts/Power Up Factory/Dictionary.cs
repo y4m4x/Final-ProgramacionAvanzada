@@ -7,6 +7,7 @@ public class Dictionary : MonoBehaviour
 {
     [SerializeField] private PowerUp[] PowerUp;
     private Dictionary<string, PowerUp> PowerUpDictionary;
+    [SerializeField] GameObject parent;
 
     private void Awake()
     {
@@ -22,12 +23,12 @@ public class Dictionary : MonoBehaviour
     {
         if (PowerUpDictionary.TryGetValue(name, out PowerUp powerUpPrefab))
         {
-            PowerUp powerUpInstance = Instantiate(powerUpPrefab, PowerUpTransform.position, Quaternion.identity);
+            PowerUp powerUpInstance = Instantiate(powerUpPrefab, PowerUpTransform.position, Quaternion.identity, parent.transform);
             return powerUpInstance;
         }
         else
         {
-            Debug.LogWarning($"El PowerUp '{PowerUpDictionary}' no existe en la base de datos de PowerUps.");
+            Debug.LogWarning($"El PowerUp '{name}' no existe en la base de datos de PowerUps.");
             return null;
         }
     }
