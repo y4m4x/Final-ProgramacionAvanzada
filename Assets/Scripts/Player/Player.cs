@@ -83,7 +83,8 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            SceneManager.LoadScene("Derrota");
+            GetComponent<PlayerHealth>().TakeDamage(-20);
+            collision.gameObject.SetActive(false);
         }
     }
 }

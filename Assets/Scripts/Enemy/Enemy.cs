@@ -5,16 +5,17 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public GameObject player;
+
     public float speed;
 
     public int damage;
 
-    public void Start()
+    private void Start()
     {
-        player = GameObject.FindWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    public void Update()
+    private void Update()
     {
         Vector2 target = player.transform.position - transform.position;
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
@@ -24,7 +25,6 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bullet"))
         {
-            Debug.Log("Enemy get damaged");
             gameObject.SetActive(false);
         }
     }
