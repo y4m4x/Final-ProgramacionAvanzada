@@ -14,8 +14,6 @@ public class Bullet : MonoBehaviour
 
     public void Shoot()
     {
-        Debug.Log("PreShoot");
-
         if (Time.time > shotRatetime)
         {
             GameObject newbullet;
@@ -29,8 +27,6 @@ public class Bullet : MonoBehaviour
             newbullet.GetComponent<Rigidbody2D>().AddForce(spawnpoint.up * shotForce);
 
             shotRatetime = Time.time + shotRate;
-
-            Debug.Log("DoneShoot");
         }
     }
 }

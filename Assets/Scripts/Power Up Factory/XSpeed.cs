@@ -5,7 +5,8 @@ using UnityEngine;
 public class XSpeed : PowerUp, PowerUpInterface
 {
     public override string PowerUpName => "XSpeedPowerUp";
-    public float newSpeed = 6f;
+    public float newSpeed = 12f;
+    public float baseSpeed = 6f;
 
     private void Start()
     {
@@ -13,8 +14,7 @@ public class XSpeed : PowerUp, PowerUpInterface
     }
     public void Action(GameObject player)
     {
-        Debug.Log("Speed has increased");
-        player.GetComponent<Player>().XSpeed(newSpeed);
+        player.GetComponent<Player>().XSpeed(newSpeed, baseSpeed);
         gameObject.SetActive(false);
     }
 }

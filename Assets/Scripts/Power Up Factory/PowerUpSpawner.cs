@@ -10,7 +10,7 @@ public class PowerUpSpawner : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("PowerUpManager", 2f, Random.Range(8f, 10f));
+        InvokeRepeating("PowerUpManager", 1f, Random.Range(5f, 10f));
     }
 
     private void PowerUpManager()

@@ -64,13 +64,18 @@ public class Player : MonoBehaviour
     private void ShootPerformed(InputAction.CallbackContext context)
     {
         playerBullet.Shoot();
-
-        Debug.Log("ShootPerformed");
     }
 
-    public void XSpeed(float newSpeed)
+    public void XSpeed(float newSpeed, float baseSpeed)
     {
+        baseSpeed = 6f;
         speed = 12f;
+        Invoke("BackNormalSpeed", baseSpeed);
+    }
+
+    private void BackNormalSpeed()
+    {
+        speed = 6f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -83,7 +88,13 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            GetComponent<PlayerHealth>().TakeDamage(-20);
+            GetComponent<PlayerHealth>().TakeDamage(-10);
+            collision.gameObject.SetActive(false);
+        }
+
+        if (collision.gameObject.CompareTag("BlueEnemy"))
+        {
+            GetComponent<PlayerHealth>().TakeDamage(-15);
             collision.gameObject.SetActive(false);
         }
     }

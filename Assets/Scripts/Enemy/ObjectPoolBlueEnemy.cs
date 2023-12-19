@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPoolEnemy : MonoBehaviour
+public class ObjectPoolBlueEnemy : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public int poolSize = 5;
-    public float spawnRate = 3f;
+    public int poolSize = 6;
+    public float spawnRate = 4.5f;
 
     private List<GameObject> enemyPool = new List<GameObject>();
     private float nextSpawnTime;

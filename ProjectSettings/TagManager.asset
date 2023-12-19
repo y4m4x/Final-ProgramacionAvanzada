@@ -8,6 +8,7 @@ TagManager:
   - bullet
   - Limit
   - Enemy
+  - BlueEnemy
   layers:
   - Default
   - TransparentFX
